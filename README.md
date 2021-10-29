@@ -11,7 +11,7 @@ CRISPR-detector brings the following four key innovations :
 ### Sentieon module
 Download sentieon toolkit from
 https://s3.amazonaws.com/sentieon-release/software/sentieon-genomics-202010.03.tar.gz  
-You may request a license by sending email to huanglei@genomics.cn
+You may request a license by sending emails to huanglei@genomics.cn
 
 export SENTIEON_LICENSE=PATH_TO_SENTIEON/sentieon-genomics-202010.03/localhost_eval.lic  
 export PATH=PATH_TO_SENTIEON/sentieon-genomics-202010.03/bin:$PATH
@@ -26,6 +26,7 @@ conda install samtools
 ### ANNOVAR
 Download ANNOVAR from
 https://www.openbioinformatics.org/annovar/annovar_download_form.php  
+  
 perl annotate_variation.pl -downdb -webfrom annovar avdblist humandb/ -buildver hg38  
 perl annotate_variation.pl -buildver hg38  -downdb -webfrom annovar refGene humandb/  
 perl annotate_variation.pl -buildver hg38  -downdb -webfrom annovar clinvar_20210501 humandb/  
