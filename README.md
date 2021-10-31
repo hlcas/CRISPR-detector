@@ -32,7 +32,7 @@ perl annotate_variation.pl -buildver hg38  -downdb -webfrom annovar refGene huma
 perl annotate_variation.pl -buildver hg38  -downdb -webfrom annovar clinvar_20210501 humandb/  
 export PATH=PATH_TO_ANNOVAR/annovar:$PATH  
   
-Organism Homo sapiens Experiment type sequencing data support variant annotations from refGene & ClinVar, other species may only support refGene annotations
+Organism Homo sapiens experiment type sequencing data support variant annotations from refGene & ClinVar, other species may only support refGene annotations
 
 ## Usage
 ### 1. Single amplicon & pooled amplicons sequencing data analysis
