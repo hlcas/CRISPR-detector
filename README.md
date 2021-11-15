@@ -49,8 +49,8 @@ python CRISPRdetectorCORE.py
 --species, species : Homo_sapiens,Mus_musculus... required=False  
 --db, ANNOVAR database path, required=False  
 --sgRNAS, path to sgRNAs sequences in fasta format , required=False  
---cleavage_offset, Center of quantification window to use within respect to the 3-end of the provided sgRNA sequence[-3]',default=-3,type=int  
---window_size , defines the size (in bp) of the quantification window extending from the position specified by the cleavage_offset parameter in relation to the provided guide RNA sequence[0], 0 means whole amplicon analysis, default=0,type=int  
+--cleavage_offset, Center of quantification window to use within respect to the 3-end of the provided sgRNA sequence,default=-3,type=int  
+--window_size , defines the size (in bp) of the quantification window extending from the position specified by the cleavage_offset parameter in relation to the provided guide RNA sequence, 0 means whole amplicon analysis, default=0,type=int  
 
 
 ### 2. Whole genome sequencing (WGS) data analysis
