@@ -52,7 +52,7 @@ args = parse.parse_args()
 time0 =time.time()
 
 if args.db != None:
-	annovar_db = args.db
+	annovar_db = os.path.abspath(args.db)
 	
 e1 = os.path.abspath(args.e1)
 if not os.path.exists(e1):
