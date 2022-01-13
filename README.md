@@ -42,11 +42,11 @@ python CRISPRdetectorCORE.py
 
 --e1: treatment group fq1 path, required = True  
 
---e2, treatment group fq2 path, required = False  
+--e2: treatment group fq2 path, required = False  
 
---c1, control group fq2 path, required = False  
+--c1: control group fq2 path, required = False  
 
---c2, control group fq2 path, required = False  
+--c2: control group fq2 path, required = False  
 
 --sample: sample name & output dir name, required = True  
 
