@@ -1,11 +1,17 @@
 # CRISPR-detector
-Here we propose our CRISPR-detector to facilitate the CRISPR-edited amplicon and whole genome sequencing data analysis, with functions that existing tools are not able to provide.   
 
-CRISPR-detector brings the following four key innovations :  
-1) optimized processing time allowing for hundreds of amplicons or whole genome sequencing data;   
-2) integrated structural variation calling;   
-3) edited and control sample co-analysis, to remove background variants not induced by gene-editing;    
-4) functional and clinical consequences annotation of editing-induced mutations.  
+CRISPR-detector is a web-hosted platform to fast and accurately identify and annotate editing-induced mutations from genome editing assays.  
+
+CRISPR-detector pipeline possesses 4 key innovations :  
+
+1) optimized processing speed allowing for hundreds of amplicons and whole genome scanning;  
+
+2) edited and control sample co-analysis, to remove background variants exist prior to genome editing;  
+
+3) functional and clinical annotation of editing-induced mutations;  
+
+4) integrated structural variation (SV) calling.  
+
 
 ## System requirements
 ### Sentieon module
