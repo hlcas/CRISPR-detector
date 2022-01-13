@@ -48,7 +48,7 @@ conda install -c bioconda/label/cf201901 gffread
 conda install -c bioconda/label/cf201901 ucsc-gtftogenepred  
 conda install -c bioconda/label/cf201901 blast  
 
-cd PATH_TO_ANNOVAR/annovar  
+cd PATH_TO_ANNOVAR/
 mkdir zebrafishdb && cd zebrafishdb  
 mv */GRCz11.fa zebrafishdb  
 mv */GRCz11.gff3 zebrafishdb  
@@ -84,6 +84,8 @@ python CRISPRdetectorCORE.py
 --assembly: assembly version, hg19,hg38 ...  
 
 --db: ANNOVAR database path, required = False    
+
+--ClinVar: only organism homo sapiens experiment type sequencing data support variant annotations from ClinVar[1], default = 0   
 
 --cleavage_offset: Center of quantification window to use within respect to the 3-end of the provided sgRNA sequence, default = -3  
 
