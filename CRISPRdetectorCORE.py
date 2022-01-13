@@ -38,8 +38,9 @@ parse.add_argument("--amplicons_file", help="Amplicons description file. This fi
 parse.add_argument("--o",help='output path',default='.',required=False)
 parse.add_argument("--threads",  help="number of threads[1]",default=1,type=int)
 parse.add_argument("--anno", help="Annotate variants:1 or Not:0",default=0,type=int)
-parse.add_argument("--db", help="Annovar database path",required=False,default='/data/toolkit/annovar/')
-parse.add_argument("--assembly", help="assembly path in fasta format : hg38.fa mm9.fa ...",required=False)
+parse.add_argument("--db", help="Annovar database path",required=False)
+parse.add_argument("--assembly", help="assembly version",required=False)
+parse.add_argument("--ClinVar", help="Organism Homo sapiens experiment type sequencing data support variant annotations from ClinVar[1]", default=0, type = int)
 parse.add_argument("--cleavage_offset", help='Center of quantification window to use within respect to the 3-end of the provided sgRNA sequence[-3]',default=-3,type=int)
 parse.add_argument("--window_size", help="Defines the size (in bp) of the quantification window extending from the position specified by the cleavage_offset parameter in relation to the provided guide RNA sequence[0], 0 means whole amplicon analysis",default=0,type=int)
 parse.add_argument("--ignore_substitutions",help="Enable substitutions evaluation[1]",default=0,type=int)
@@ -50,6 +51,9 @@ parse.add_argument("--max_fisher_pv_active",help="The maximum pvalue of the stat
 args = parse.parse_args()
 time0 =time.time()
 
+if args.db != None:
+	annovar_db = args.db
+	
 e1 = os.path.abspath(args.e1)
 if not os.path.exists(e1):
 	sys.exit('Please check the path of treatment group fastqs.')
@@ -213,8 +217,6 @@ else:
 if args.anno == 1:
 	# params runnning Annovar needed 
 	assembly = args.assembly
-	assembly_dic = {'hg38':'human','hg19':'human','mm10':'mouse','mm39':'mouse','GRCz11':'zebarfish','susScr11':'pig','Mmul_10':'monkey','bosTau9':'cow','v9.1':'frog','BDGP6.32':'fly','TAIR10':'tair','IRGSP-1.0':'rice'}
-	annovar_db = os.path.join(args.db,assembly_dic[assembly]+'db')
 	assembly_path = os.path.join(annovar_db,assembly+'.fa')
 	# running blastn to get the coordinates of each amplicon on assembly fasta
 	os.system('blastn -db '+assembly_path+' -query '+fasta+' -out temp/blast_out.txt -outfmt \"6 qaccver saccver sstrand sstart send\" -max_target_seqs 1 && sync')
@@ -385,7 +387,7 @@ if len(avinput) != 0:
 					f.write(Chr+'\t'+str(lift_pos-avinput['end'].values[m]+1)+'\t'+str(lift_pos-avinput['start'].values[m]+1)+'\t'+str(Seq(avinput['ref'].values[m]).reverse_complement())+'\t'+str(Seq(avinput['alt'].values[m]).reverse_complement())+'\t'+avinput['het/hom'].values[m]+'\t.\t'+str(avinput['DP'].values[m])+'\n')
 				else:
 					f.write(Chr+'\t'+str(lift_pos+avinput['start'].values[m]-1)+'\t'+str(lift_pos+avinput['end'].values[m]-1)+'\t'+avinput['ref'].values[m]+'\t'+avinput['alt'].values[m]+'\t'+avinput['het/hom'].values[m]+'\t.\t'+str(avinput['DP'].values[m])+'\n')
-		if 'human' in annovar_db:
+		if args.ClinVar == 1:
 			logger.info('Starting annotate variants using ANNOVAR with ClinVar and refGene database.')
 			os.system('table_annovar.pl temp/lift.tmp.avinput '+annovar_db+' -buildver '+assembly+' -out temp/out -remove -protocol refGene,clinvar_20210501 -operation g,f -nastring . -csvout -polish && sync')
 		else:
