@@ -50,8 +50,8 @@ python CRISPRdetectorCORE.py
 
 --sample: sample name & output dir name, required = True  
 
---amplicons_file: a tab-delimited text amplicons description file with up to 3 columns   
-  [AMPLICON_NAME, AMPLICON_SEQ, gRNA_SEQ_without_PAM(Optional)], required=True  
+--amplicons_file: a tab-delimited text amplicons description file with up to 3 columns, required=True  
+  [AMPLICON_NAME, AMPLICON_SEQ, gRNA_SEQ_without_PAM(Optional)]
 
 --threads: number of threads to run sentieon minimap2 & driver module, default=1 
   
