@@ -1,6 +1,6 @@
 # CRISPR-detector
 
-CRISPR-detector is a web-hosted platform to fast and accurately identify and annotate editing-induced mutations from genome editing assays.  
+CRISPR-detector provides a web-hosted platform (https://db.cngb.org/crispr-detector/) and local deployable pipeline to fast and accurately identify and annotate editing-induced mutations from genome editing assays. 
 
 CRISPR-detector pipeline possesses 4 key innovations :  
 
