@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 '''
 #-------------------------------------------------
-#	   File Name:	   CRISPRdetectorCORE.py
+#	   File Name:	   CRISPRdetectorWGS.py
 #	   Author:		   Lei Huang
 #	   Date:		   2021.10.20
 #	   E-mail:		   huanglei192@mails.ucas.ac.cn
@@ -14,10 +14,6 @@ import time
 import logging
 import argparse
 import textwrap
-import numpy as np
-import pandas as pd
-from Bio.Seq import Seq
-from pyfaidx import Fasta
 
 description = '''
 ------------------------------------------------------------------------------------------------------------------------
@@ -60,6 +56,7 @@ if args.bed != None:
 	interval_bed = os.path.abspath(args.bed)
 	
 sample_name = args.sample
+fasta = os.path.abspath(args.assembly)
 
 os.chdir(args.o)
 os.system('mkdir -p ' + sample_name+'/temp/ && sync')
@@ -77,7 +74,6 @@ logger.addHandler(fh)
 threads = str(args.threads)
 filter_t_alt_frac = args.min_tumor_allele_frac
 
-fasta = os.path.abspath(args.assembly)
 amplicon_fas = Fasta(fasta)
 
 logger.info('Mapping treatment group fastqs to amplicon(s) using minimap2.')
@@ -109,6 +105,7 @@ else:
 		os.system('sentieon driver -t '+threads+' -r '+fasta+' -i temp/'+sample_name+'.tmp.bam --algo TNscope --tumor_sample '+sample_name+param_list+' temp/tmp.vcf.gz && sync')
 	else:
 		os.system('sentieon driver -t '+threads+' -r '+fasta+' -i temp/'+sample_name+'.tmp.bam --interval '+interval_bed+' --algo TNscope --tumor_sample '+sample_name+param_list+' temp/tmp.vcf.gz && sync')
+
 logger.info('Finished : variants called')
 time1=time.time()
 logger.info('Finished! Running time: %s seconds'%(round(time1-time0,2)))
