@@ -60,7 +60,7 @@ makeblastdb -in GRCz11.fa -dbtype nucl
 
 ## Usage
 ### 1. Single amplicon & pooled amplicons sequencing data analysis
-python CRISPRdetectorCORE.py  
+python scripts/CRISPRdetectorCORE.py  
 
 --sample: sample name & output dir  
 
@@ -102,7 +102,7 @@ python CRISPRdetectorCORE.py
 --max_fisher_pv_active: the maximum pvalue of the statistical difference between treated and untreated sample, default = 0.05  
 
 ### 2. Whole genome sequencing (WGS) data analysis
-python CRISPRdetectorWGS.py
+python scripts/CRISPRdetectorWGS.py
 
 --e1: treatment group fq1 path, required = True  
 
@@ -118,10 +118,4 @@ python CRISPRdetectorWGS.py
 
 --bed: bed format file input to call variants of interest region, required = False   
 
---anno: annotate variants with ANNOVAR [1] or not run ANNOVAR [2], required = False  
-
 --assembly: path to assembly in fasta format : hg38.fa mm9.fa ... required = False  
-
---species: Homo_sapiens,Mus_musculus... required=False  
-
---db: ANNOVAR database path, required=False  
