@@ -118,7 +118,7 @@ python scripts/CRISPRdetectorWGS.py
 
 --bed: bed format file input to call variants of interest region, required = False   
 
---assembly: path to assembly in fasta format : hg38.fa mm9.fa ... required = False  
+--assembly: path to assembly in fasta format : hg38.fa mm9.fa ... required = True  
 
 
 
