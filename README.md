@@ -119,3 +119,26 @@ python scripts/CRISPRdetectorWGS.py
 --bed: bed format file input to call variants of interest region, required = False   
 
 --assembly: path to assembly in fasta format : hg38.fa mm9.fa ... required = False  
+
+
+
+### 3. Vector sequence insertion locations detection 
+python scripts/CRISPRdetectorVEC.py
+
+--e1: treatment group fq1 path, required = True  
+
+--e2: treatment group fq2 path, required = False  
+
+--c1: control group fq2 path, required = False  
+
+--c2: control group fq2 path, required = False  
+
+--sample: sample name & output dir  
+
+--threads: number of threads to run sentieon minimap2 & driver module, default = 1   
+
+--bed: bed format file input to call variants of interest region, required = False   
+
+--vector : path to vector genome in fasta format, required = True  
+
+--assembly: path to assembly in fasta format : hg38.fa mm9.fa ... required = True  
