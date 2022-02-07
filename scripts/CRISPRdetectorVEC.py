@@ -68,7 +68,7 @@ os.chdir(args.o)
 os.system('mkdir -p ' + sample_name+'/temp/ && sync')
 os.chdir(sample_name)
 
-os.system('cat '+fasta+' '+vector+' > temp/tmp.fa')
+os.system('cat '+fasta+' '+vector+' > temp/tmp.fa && sync')
 fasta = 'temp/tmp.fa'
 
 logger = logging.getLogger()
@@ -114,6 +114,7 @@ else:
 		os.system('sentieon driver -t '+threads+' -r '+fasta+' -i temp/'+sample_name+'.tmp.bam --algo TNscope --tumor_sample '+sample_name+param_list+' temp/tmp.vcf.gz && sync')
 	else:
 		os.system('sentieon driver -t '+threads+' -r '+fasta+' -i temp/'+sample_name+'.tmp.bam --interval '+interval_bed+' --algo TNscope --tumor_sample '+sample_name+param_list+' temp/tmp.vcf.gz && sync')
+
 logger.info('Finished : variants called')
 time1=time.time()
 logger.info('Finished! Running time: %s seconds'%(round(time1-time0,2)))
