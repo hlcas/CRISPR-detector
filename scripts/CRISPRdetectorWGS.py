@@ -31,6 +31,7 @@ parse.add_argument("--e1", help="treated group fq1 path",required=True)
 parse.add_argument("--e2", help="treated group fq2 path",required=False)
 parse.add_argument("--c1", help="control group fq1 path",required=False)
 parse.add_argument("--c2", help="control group fq2 path",required=False)
+parse.add_argument("--bed", help="bed format file path",required=False)
 parse.add_argument("--sample",help="sample name & output dir",required=True)
 parse.add_argument("--assembly",help="genome path in fasta format",required=True)
 parse.add_argument("--min_tumor_allele_frac", help="The minimum allelic fraction in treated sample",default='0.005',type=str)
@@ -54,7 +55,10 @@ if args.c2 != None:
 	c2 = os.path.abspath(args.c2)
 	if not os.path.exists(c2):
 		sys.exit('Please check the path of control group fastqs.')
-
+		
+if args.bed != None:
+	interval_bed = os.path.abspath(args.bed)
+	
 sample_name = args.sample
 
 os.chdir(args.o)
@@ -94,12 +98,17 @@ if args.c1 != None:
 	# Starting calling variants using sentieon driver TNscope caller
 	logger.info('Calling variants.')
 	param_list = ' --min_tumor_allele_frac '+filter_t_alt_frac+' --filter_t_alt_frac '+filter_t_alt_frac+' --max_fisher_pv_active '+args.max_fisher_pv_active+' --resample_depth 100000 --assemble_mode 4 --prune_factor 0'
-	os.system('sentieon driver -t '+threads+' -r '+fasta+' -i temp/'+sample_name+'.tmp.bam -i temp/'+sample_name+'.control.tmp.bam --algo TNscope --tumor_sample '+sample_name+' --normal_sample control_'+sample_name+param_list+' temp/tmp.vcf.gz && sync')
+	if args.bed == None:
+		os.system('sentieon driver -t '+threads+' -r '+fasta+' -i temp/'+sample_name+'.tmp.bam -i temp/'+sample_name+'.control.tmp.bam --algo TNscope --tumor_sample '+sample_name+' --normal_sample control_'+sample_name+param_list+' temp/tmp.vcf.gz && sync')
+	else:
+		os.system('sentieon driver -t '+threads+' -r '+fasta+' -i temp/'+sample_name+'.tmp.bam -i temp/'+sample_name+'.control.tmp.bam --interval '+interval_bed+' --algo TNscope --tumor_sample '+sample_name+' --normal_sample control_'+sample_name+param_list+' temp/tmp.vcf.gz && sync')
 else:
 	logger.info('Calling variants')			
 	param_list = ' --min_tumor_allele_frac '+filter_t_alt_frac+' --filter_t_alt_frac '+filter_t_alt_frac+' --resample_depth 100000 --assemble_mode 3'
-	os.system('sentieon driver -t '+threads+' -r '+fasta+' -i temp/'+sample_name+'.tmp.bam --algo TNscope --tumor_sample '+sample_name+param_list+' temp/tmp.vcf.gz && sync')
-
+	if args.bed == None:
+		os.system('sentieon driver -t '+threads+' -r '+fasta+' -i temp/'+sample_name+'.tmp.bam --algo TNscope --tumor_sample '+sample_name+param_list+' temp/tmp.vcf.gz && sync')
+	else:
+		os.system('sentieon driver -t '+threads+' -r '+fasta+' -i temp/'+sample_name+'.tmp.bam --interval '+interval_bed+' --algo TNscope --tumor_sample '+sample_name+param_list+' temp/tmp.vcf.gz && sync')
 logger.info('Finished : variants called')
 time1=time.time()
 logger.info('Finished! Running time: %s seconds'%(round(time1-time0,2)))
