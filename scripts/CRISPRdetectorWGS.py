@@ -108,7 +108,5 @@ else:
 
 logger.info('Finished : variants called')
 time1=time.time()
-logger.info('Finished! Running time: %s seconds'%(round(time1-time0,2)))
+logger.info('Finished! Running time: %s seconds'%(round(time1-time0,2))
 
-if __name__ == '__main__':
-	main()
