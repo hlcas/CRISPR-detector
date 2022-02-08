@@ -1,10 +1,10 @@
-python ../scripts/CRISPRdetectorCORE.py --e1 fastqs/unmodified_amplicon_errors_R1.fastq --e2 fastqs/unmodified_amplicon_errors_R2.fastq --sample unmodified --amplicons_file unmodified_amplicon.tab --threads 1
-python ../scripts/CRISPRdetectorCORE.py --e1 fastqs/amplicon_1_substitution_errors_R1.fastq --e2 fastqs/amplicon_1_substitution_errors_R2.fastq --sample sub1 --amplicons_file unmodified_amplicon.tab --threads 1
-python ../scripts/CRISPRdetectorCORE.py --e1 fastqs/amplicon_2_substitution_errors_R1.fastq --e2 fastqs/amplicon_2_substitution_errors_R2.fastq --sample sub2 --amplicons_file unmodified_amplicon.tab --threads 1
-python ../scripts/CRISPRdetectorCORE.py --e1 fastqs/amplicon_3_substitution_errors_R1.fastq --e2 fastqs/amplicon_3_substitution_errors_R2.fastq --sample sub3 --amplicons_file unmodified_amplicon.tab --threads 1
-python ../scripts/CRISPRdetectorCORE.py --e1 fastqs/amplicon_5_ins_errors_R1.fastq --e2 fastqs/amplicon_5_ins_errors_R2.fastq --sample ins5 --amplicons_file unmodified_amplicon.tab --threads 1
-python ../scripts/CRISPRdetectorCORE.py --e1 fastqs/amplicon_10_ins_errors_R1.fastq --e2 fastqs/amplicon_10_ins_errors_R2.fastq --sample ins10 --amplicons_file unmodified_amplicon.tab --threads 1
-python ../scripts/CRISPRdetectorCORE.py --e1 fastqs/amplicon_50_ins_errors_R1.fastq --e2 fastqs/amplicon_50_ins_errors_R2.fastq --sample ins50 --amplicons_file unmodified_amplicon.tab --threads 1
-python ../scripts/CRISPRdetectorCORE.py --e1 fastqs/amplicon_5_del_errors_R1.fastq --e2 fastqs/amplicon_5_del_errors_R2.fastq --sample del5 --amplicons_file unmodified_amplicon.tab --threads 1
-python ../scripts/CRISPRdetectorCORE.py --e1 fastqs/amplicon_10_del_errors_R1.fastq --e2 fastqs/amplicon_10_del_errors_R2.fastq --sample del10 --amplicons_file unmodified_amplicon.tab --threads 1
-python ../scripts/CRISPRdetectorCORE.py --e1 fastqs/amplicon_50_del_errors_R1.fastq --e2 fastqs/amplicon_50_del_errors_R2.fastq --sample del50 --amplicons_file unmodified_amplicon.tab --threads 1
+python ../scripts/CRISPRdetectorCORE.py --e1 fastqs/unmodified_amplicon_errors_R1.fastq --e2 fastqs/unmodified_amplicon_errors_R2.fastq --sample unmodified --amplicons_file unmodified_amplicon.tab 
+python ../scripts/CRISPRdetectorCORE.py --e1 fastqs/amplicon_1_substitution_errors_R1.fastq --e2 fastqs/amplicon_1_substitution_errors_R2.fastq --sample sub1 --amplicons_file unmodified_amplicon.tab 
+python ../scripts/CRISPRdetectorCORE.py --e1 fastqs/amplicon_2_substitution_errors_R1.fastq --e2 fastqs/amplicon_2_substitution_errors_R2.fastq --sample sub2 --amplicons_file unmodified_amplicon.tab 
+python ../scripts/CRISPRdetectorCORE.py --e1 fastqs/amplicon_3_substitution_errors_R1.fastq --e2 fastqs/amplicon_3_substitution_errors_R2.fastq --sample sub3 --amplicons_file unmodified_amplicon.tab 
+python ../scripts/CRISPRdetectorCORE.py --e1 fastqs/amplicon_5_ins_errors_R1.fastq --e2 fastqs/amplicon_5_ins_errors_R2.fastq --sample ins5 --amplicons_file unmodified_amplicon.tab 
+python ../scripts/CRISPRdetectorCORE.py --e1 fastqs/amplicon_10_ins_errors_R1.fastq --e2 fastqs/amplicon_10_ins_errors_R2.fastq --sample ins10 --amplicons_file unmodified_amplicon.tab 
+python ../scripts/CRISPRdetectorCORE.py --e1 fastqs/amplicon_50_ins_errors_R1.fastq --e2 fastqs/amplicon_50_ins_errors_R2.fastq --sample ins50 --amplicons_file unmodified_amplicon.tab 
+python ../scripts/CRISPRdetectorCORE.py --e1 fastqs/amplicon_5_del_errors_R1.fastq --e2 fastqs/amplicon_5_del_errors_R2.fastq --sample del5 --amplicons_file unmodified_amplicon.tab 
+python ../scripts/CRISPRdetectorCORE.py --e1 fastqs/amplicon_10_del_errors_R1.fastq --e2 fastqs/amplicon_10_del_errors_R2.fastq --sample del10 --amplicons_file unmodified_amplicon.tab 
+python ../scripts/CRISPRdetectorCORE.py --e1 fastqs/amplicon_50_del_errors_R1.fastq --e2 fastqs/amplicon_50_del_errors_R2.fastq --sample del50 --amplicons_file unmodified_amplicon.tab 
