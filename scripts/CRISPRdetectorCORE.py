@@ -470,6 +470,3 @@ if len(amplicon_fas.keys()) > 0:
 os.system('zip -r '+sample_name+'.zip *txt */*csv */*txt && sync')
 time1=time.time()
 logger.info('Finished! Running time: %s seconds'%(round(time1-time0,2)))
-
-if __name__ == '__main__':
-	main()
