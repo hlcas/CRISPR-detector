@@ -28,8 +28,10 @@ parse.add_argument("--e2", help="treated group fq2 path",required=False)
 parse.add_argument("--c1", help="control group fq1 path",required=False)
 parse.add_argument("--c2", help="control group fq2 path",required=False)
 parse.add_argument("--bed", help="bed format file path",required=False)
+parse.add_argument("--o",help='output path',default='.',required=False)
 parse.add_argument("--sample",help="sample name & output dir",required=True)
 parse.add_argument("--assembly",help="genome path in fasta format",required=True)
+parse.add_argument("--threads",  help="number of threads[15]",default=15,type=int)
 parse.add_argument("--min_tumor_allele_frac", help="The minimum allelic fraction in treated sample",default='0.005',type=str)
 parse.add_argument("--max_fisher_pv_active",help="The maximum pvalue of the statistical difference between treated and untreated sample",default='0.05',type=str)
  
@@ -73,8 +75,6 @@ logger.addHandler(fh)
 
 threads = str(args.threads)
 filter_t_alt_frac = args.min_tumor_allele_frac
-
-amplicon_fas = Fasta(fasta)
 
 logger.info('Mapping treatment group fastqs to amplicon(s) using minimap2.')
 if args.e2 != None:
