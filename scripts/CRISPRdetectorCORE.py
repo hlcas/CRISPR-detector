@@ -376,7 +376,7 @@ if len(avinput) != 0:
 				else:
 					f.write(Chr+'\t'+str(lift_pos+avinput['start'].values[m]-1)+'\t'+str(lift_pos+avinput['end'].values[m]-1)+'\t'+avinput['ref'].values[m]+'\t'+avinput['alt'].values[m]+'\t'+avinput['het/hom'].values[m]+'\t.\t'+str(avinput['DP'].values[m])+'\n')
 
-		if args,ClinVar ==1:
+		if args.ClinVar ==1:
 			logger.info('Starting annotate variants using ANNOVAR with ClinVar and refGene database.')
 			os.system('table_annovar.pl temp/lift.tmp.avinput '+annovar_db+' -buildver '+assembly+' -out temp/out -remove -protocol refGene,clinvar_20210501 -operation g,f -nastring . -csvout -polish && sync')
 		else:
