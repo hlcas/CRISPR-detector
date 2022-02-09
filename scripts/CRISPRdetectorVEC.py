@@ -82,21 +82,21 @@ logger.addHandler(fh)
 threads = str(args.threads)
 filter_t_alt_frac = args.min_tumor_allele_frac
 
-logger.info('Mapping treatment group fastqs to amplicon(s) using minimap2.')
+logger.info('Mapping treatment group reads using minimap2.')
 if args.e2 != None:
 	os.system('sentieon minimap2 -ax sr -Y -K 100000000 -R  \"@RG\\tID:'+sample_name+'\\tSM:'+sample_name+'\\tPL:$platform\" -t '+threads+' '+fasta+' '+e1+' '+e2+' | sentieon util sort -o temp/'+sample_name+'.tmp.bam -t '+threads+' --sam2bam -i - && sync')
 else:
 	os.system('sentieon minimap2 -ax sr -Y -K 100000000 -R  \"@RG\\tID:'+sample_name+'\\tSM:'+sample_name+'\\tPL:$platform\" -t '+threads+' '+fasta+' '+e1+' | sentieon util sort -o temp/'+sample_name+'.tmp.bam -t '+threads+' --sam2bam -i - && sync')
-logger.info('Finished : mapping treatment group fastqs to amplicon(s) using minimap2.')
+logger.info('Finished : mapping treatment group reads using minimap2.')
 
-# Starting running minimap2 mapping reads to amplicons (control group)
+# Starting running minimap2 mapping reads (control group)
 if args.c1 != None:
-	logger.info('Mapping control group fastqs to amplicon(s) using minimap2.')
+	logger.info('Mapping control group reads using minimap2.')
 	if args.c2 != None:
 		os.system('sentieon minimap2 -ax sr -Y -K 100000000 -R  \"@RG\\tID:control_'+sample_name+'\\tSM:control_'+sample_name+'\\tPL:$platform\" -t '+threads+' '+fasta+' '+c1+' '+c2+' | sentieon util sort -o temp/'+sample_name+'.control.tmp.bam -t '+threads+' --sam2bam -i - && sync')
 	else:
 		os.system('sentieon minimap2 -ax sr -Y -K 100000000 -R  \"@RG\\tID:control_'+sample_name+'\\tSM:control_'+sample_name+'\\tPL:$platform\" -t '+threads+' '+fasta+' '+c1+' | sentieon util sort -o temp/'+sample_name+'.control.tmp.bam -t '+threads+' --sam2bam -i - && sync')
-	logger.info('Finished : mapping control group fastqs to amplicon(s) using minimap2.')
+	logger.info('Finished : mapping control group reads using minimap2.')
 	# Starting calling variants using sentieon driver TNscope caller
 	logger.info('Calling variants.')
 	param_list = ' --min_tumor_allele_frac '+filter_t_alt_frac+' --filter_t_alt_frac '+filter_t_alt_frac+' --max_fisher_pv_active '+args.max_fisher_pv_active+' --resample_depth 100000 --assemble_mode 4 --prune_factor 0'
