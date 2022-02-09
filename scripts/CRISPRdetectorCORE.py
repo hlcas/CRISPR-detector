@@ -274,8 +274,7 @@ if len(avinput) != 0:
 		avinput_loci = avinput[avinput['amplicon'] == t]
 		os.system('mkdir -p '+t)	
 		avinput_loci = avinput_loci.reset_index(drop=True)	
-		avinput_loci.to_csv(t+'_loci.tab',sep='\t')
-
+		
 		if len(amplicons_file.columns) == 3:
 			sgRNA_start = amplicon_fas[t][:].seq.find(sgrna[t][:].seq) + 1
 			sgRNA_end = sgRNA_start + len(sgrna[t][:].seq) - 1
