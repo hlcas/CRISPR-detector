@@ -118,7 +118,7 @@ python scripts/CRISPRdetectorWGS.py
 
 --threads: number of threads to run sentieon minimap2 & driver module, default = 1   
 
---bed: bed format file input to call variants of interest region, required = False   
+--bed: bed format file input to call variants of interested regions, required = False   
 
 --assembly: path to assembly in fasta format : hg38.fa mm9.fa ... required = True  
 
@@ -141,7 +141,7 @@ python scripts/CRISPRdetectorVEC.py
 
 --threads: number of threads to run sentieon minimap2 & driver module, default = 1   
 
---bed: bed format file input to call variants of interest region, required = False   
+--bed: bed format file input to call variants of interested regions, required = False   
 
 --vector : path to vector genome in fasta format, required = True  
 
