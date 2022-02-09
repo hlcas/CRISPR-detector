@@ -48,7 +48,7 @@ conda install -c bioconda/label/cf201901 gffread
 conda install -c bioconda/label/cf201901 ucsc-gtftogenepred  
 conda install -c bioconda/label/cf201901 blast  
 
-cd PATH_TO_ANNOVAR/
+cd PATH_TO_ANNOVAR/  
 mkdir zebrafishdb && cd zebrafishdb  
 mv */GRCz11.fa zebrafishdb  
 mv */GRCz11.gff3 zebrafishdb  
@@ -112,7 +112,9 @@ python scripts/CRISPRdetectorWGS.py
 
 --c2: control group fq2 path, required = False  
 
---sample: sample name & output dir  
+--sample: sample name & output dir name    
+
+--o: output path, default='.', required = False  
 
 --threads: number of threads to run sentieon minimap2 & driver module, default = 1   
 
@@ -133,7 +135,9 @@ python scripts/CRISPRdetectorVEC.py
 
 --c2: control group fq2 path, required = False  
 
---sample: sample name & output dir  
+--sample: sample name & output dir name  
+
+--o: output path, default='.', required = False  
 
 --threads: number of threads to run sentieon minimap2 & driver module, default = 1   
 
