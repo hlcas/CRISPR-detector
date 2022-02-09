@@ -59,6 +59,7 @@ if args.bed != None:
 	
 sample_name = args.sample
 fasta = os.path.abspath(args.assembly)
+os.system('samtools faidx '+fasta+' && sync')
 
 os.chdir(args.o)
 os.system('mkdir -p ' + sample_name+'/temp/ && sync')
