@@ -68,6 +68,7 @@ os.chdir(sample_name)
 
 os.system('cat '+fasta+' '+vector+' > temp/tmp.fa && sync')
 fasta = 'temp/tmp.fa'
+os.system('samtools faidx temp/tmp.fa && sync')
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
