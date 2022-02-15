@@ -60,7 +60,7 @@ makeblastdb -in GRCz11.fa -dbtype nucl
 
 ## Usage
 ### 1. Single amplicon & pooled amplicons sequencing data analysis
-python scripts/CRISPRdetectorCORE.py  
+python scripts/CRISPRdetectorCORE.py | scripts/CRISPRdetectorBE.py (base editing)
 
 --sample: sample name & output dir  
 
