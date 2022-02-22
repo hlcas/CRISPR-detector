@@ -58,7 +58,8 @@ retrieve_seq_from_fasta.pl --format refGene --seqfile GRCz11.fa GRCz11_refGene.t
 makeblastdb -in GRCz11.fa -dbtype nucl  
 
 ## Usage  
-### Common parameters for CRISPRdetectorCORE.py|CRISPRdetectorBE.py|CRISPRdetectorWGS.py|CRISPRdetectorVEC.py
+### Common parameters
+### CRISPRdetectorCORE.py | CRISPRdetectorBE.py | CRISPRdetectorWGS.py | CRISPRdetectorVEC.py
 ```
 --sample: sample name & output dir name [required]
 --e1: treatment group fq1 path [required]
