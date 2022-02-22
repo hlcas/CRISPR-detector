@@ -3,7 +3,7 @@ CRISPR-detector
 
 CRISPR-detector provides a web-hosted platform (https://db.cngb.org/crispr-detector/) and local deployable pipeline to fast and accurately identify and annotate editing-induced mutations from genome editing assays. 
 
-### CRISPR-detector pipeline possesses 5 key innovations :  
+# CRISPR-detector pipeline possesses 5 key innovations :  
 
 1) optimized scalability allowing for whole genome sequencing data analysis beyond BED file-defined regions;   
 2) improved accuracy benefited from haplotype based variant calling to handle sequencing errors;  
@@ -57,8 +57,8 @@ gtfToGenePred -genePredExt GRCz11.gtf GRCz11_refGene.txt
 retrieve_seq_from_fasta.pl --format refGene --seqfile GRCz11.fa GRCz11_refGene.txt --out GRCz11_refGeneMrna.fa    
 makeblastdb -in GRCz11.fa -dbtype nucl  
 
-## Usage  
-### 1. Common parameters
+# Usage  
+## 1. Common parameters
  ``` 
 python CRISPRdetectorCORE.py | CRISPRdetectorBE.py | CRISPRdetectorWGS.py | CRISPRdetectorVEC.py
 --sample: sample name & output dir name [required]
@@ -71,7 +71,8 @@ python CRISPRdetectorCORE.py | CRISPRdetectorBE.py | CRISPRdetectorWGS.py | CRIS
 --min_tumor_allele_frac: the minimum allelic fraction in treated sample [default:0.005] 
 --max_fisher_pv_active: the maximum pvalue of the statistical difference between treated and untreated sample [default:0.05] 
 ```
-### 2. Single amplicon & pooled amplicons sequencing data analysis
+
+## 2. Single amplicon & pooled amplicons sequencing data analysis
 ### Additional parameters for CRISPRdetectorCORE.py 
 ```
 python scripts/CRISPRdetectorCORE.py
@@ -85,8 +86,8 @@ python scripts/CRISPRdetectorCORE.py
 --ignore_substitutions: enable substitutions evaluation [default:0]  
 --min_num_of_reads: the minimum number of reads (per locus site) to evaluate [default:500] 
 ```
-### 3.Base editing experiments target amplicon sequencing data analysis
 
+## 3.Base editing experiments target amplicon sequencing data analysis
 ### Additional parameters for CRISPRdetectorBE.py
 ```
 python scripts/CRISPRdetectorBE.py
@@ -100,7 +101,7 @@ python scripts/CRISPRdetectorBE.py
 --min_num_of_reads: the minimum number of reads (per locus site) to evaluate [default:500] 
 ```
 
-### 4. Whole genome sequencing (WGS) data analysis
+## 4. Whole genome sequencing (WGS) data analysis
 ### Additional parameters for CRISPRdetectorWGS.py
 ```
 python scripts/CRISPRdetectorWGS.py
@@ -108,8 +109,7 @@ python scripts/CRISPRdetectorWGS.py
 --assembly: path to assembly in fasta format : hg38.fa mm9.fa ... [required]    
 ```
 
-
-### 5. Vector sequence insertion locations detection 
+## 5. Vector sequence insertion locations detection 
 ### Additional parameters for CRISPRdetectorVEC.py
 ```
 python scripts/CRISPRdetectorVEC.py
