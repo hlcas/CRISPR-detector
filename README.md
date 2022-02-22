@@ -1,16 +1,15 @@
-# CRISPR-detector
+CRISPR-detector
+====
 
 CRISPR-detector provides a web-hosted platform (https://db.cngb.org/crispr-detector/) and local deployable pipeline to fast and accurately identify and annotate editing-induced mutations from genome editing assays. 
 
-CRISPR-detector pipeline possesses 4 key innovations :  
+### CRISPR-detector pipeline possesses 5 key innovations :  
 
-1) optimized processing speed allowing for hundreds of amplicons and whole genome scanning;  
-
-2) edited and control sample co-analysis, to remove background variants exist prior to genome editing;  
-
-3) functional and clinical annotation of editing-induced mutations;  
-
-4) integrated structural variation (SV) calling.  
+1) optimized scalability allowing for whole genome sequencing data analysis beyond BED file-defined regions;   
+2) improved accuracy benefited from haplotype based variant calling to handle sequencing errors;  
+3) treated and control sample co-analysis to remove background variants existing prior to genome editing;  
+4) integrated structural variation (SV) calling with additional focus on vector insertions from viral-mediated genome editing;   
+5) functional and clinical annotation of editing-induced mutations. 
 
 
 ## System requirements
@@ -58,8 +57,9 @@ gtfToGenePred -genePredExt GRCz11.gtf GRCz11_refGene.txt
 retrieve_seq_from_fasta.pl --format refGene --seqfile GRCz11.fa GRCz11_refGene.txt --out GRCz11_refGeneMrna.fa    
 makeblastdb -in GRCz11.fa -dbtype nucl  
 
-## Usage
+## Usage  
 ### 1. Single amplicon & pooled amplicons sequencing data analysis
+```
 python scripts/CRISPRdetectorCORE.py | scripts/CRISPRdetectorBE.py (base editing)
 
 --sample: sample name & output dir  
@@ -93,15 +93,16 @@ python scripts/CRISPRdetectorCORE.py | scripts/CRISPRdetectorBE.py (base editing
 
 --o: output path, default='.', required = False  
 
---ignore_substitutions: enable substitutions evaluation[1], default = 0  
+--ignore_substitutions: enable substitutions evaluation[1], default = 0  (Not)
 
 --min_tumor_allele_frac: the minimum allelic fraction in treated sample, default = 0.005  
 
 --min_num_of_reads: the minimum number of reads (per locus site) to evaluate, default = 500  
 
 --max_fisher_pv_active: the maximum pvalue of the statistical difference between treated and untreated sample, default = 0.05  
-
+```
 ### 2. Whole genome sequencing (WGS) data analysis
+```
 python scripts/CRISPRdetectorWGS.py
 
 --e1: treatment group fq1 path, required = True  
@@ -121,10 +122,11 @@ python scripts/CRISPRdetectorWGS.py
 --bed: bed format file input to call variants of interested regions, required = False   
 
 --assembly: path to assembly in fasta format : hg38.fa mm9.fa ... required = True  
-
+```
 
 
 ### 3. Vector sequence insertion locations detection 
+```
 python scripts/CRISPRdetectorVEC.py
 
 --e1: treatment group fq1 path, required = True  
@@ -146,3 +148,4 @@ python scripts/CRISPRdetectorVEC.py
 --vector : path to vector genome in fasta format, required = True  
 
 --assembly: path to assembly in fasta format : hg38.fa mm9.fa ... required = True  
+```
