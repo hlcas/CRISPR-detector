@@ -59,8 +59,8 @@ makeblastdb -in GRCz11.fa -dbtype nucl
 
 ## Usage  
 ### Common parameters
-### CRISPRdetectorCORE.py | CRISPRdetectorBE.py | CRISPRdetectorWGS.py | CRISPRdetectorVEC.py
-```
+ ``` 
+python CRISPRdetectorCORE.py | CRISPRdetectorBE.py | CRISPRdetectorWGS.py | CRISPRdetectorVEC.py
 --sample: sample name & output dir name [required]
 --e1: treatment group fq1 path [required]
 --e2: treatment group fq2 path [optional]
