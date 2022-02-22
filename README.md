@@ -58,7 +58,7 @@ retrieve_seq_from_fasta.pl --format refGene --seqfile GRCz11.fa GRCz11_refGene.t
 makeblastdb -in GRCz11.fa -dbtype nucl  
 
 ## Usage  
-### Common parameters
+### 1. Common parameters
  ``` 
 python CRISPRdetectorCORE.py | CRISPRdetectorBE.py | CRISPRdetectorWGS.py | CRISPRdetectorVEC.py
 --sample: sample name & output dir name [required]
@@ -71,7 +71,7 @@ python CRISPRdetectorCORE.py | CRISPRdetectorBE.py | CRISPRdetectorWGS.py | CRIS
 --min_tumor_allele_frac: the minimum allelic fraction in treated sample [default:0.005] 
 --max_fisher_pv_active: the maximum pvalue of the statistical difference between treated and untreated sample [default:0.05] 
 ```
-### 1. Single amplicon & pooled amplicons sequencing data analysis
+### 2. Single amplicon & pooled amplicons sequencing data analysis
 ### Additional parameters for CRISPRdetectorCORE.py 
 ```
 python scripts/CRISPRdetectorCORE.py
@@ -85,7 +85,7 @@ python scripts/CRISPRdetectorCORE.py
 --ignore_substitutions: enable substitutions evaluation [default:0]  
 --min_num_of_reads: the minimum number of reads (per locus site) to evaluate [default:500] 
 ```
-### 2.Base editing experiments target amplicon sequencing data analysis
+### 3.Base editing experiments target amplicon sequencing data analysis
 
 ### Additional parameters for CRISPRdetectorBE.py
 ```
@@ -100,7 +100,7 @@ python scripts/CRISPRdetectorBE.py
 --min_num_of_reads: the minimum number of reads (per locus site) to evaluate [default:500] 
 ```
 
-### 3. Whole genome sequencing (WGS) data analysis
+### 4. Whole genome sequencing (WGS) data analysis
 ### Additional parameters for CRISPRdetectorWGS.py
 ```
 python scripts/CRISPRdetectorWGS.py
@@ -109,7 +109,7 @@ python scripts/CRISPRdetectorWGS.py
 ```
 
 
-### 4. Vector sequence insertion locations detection 
+### 5. Vector sequence insertion locations detection 
 ### Additional parameters for CRISPRdetectorVEC.py
 ```
 python scripts/CRISPRdetectorVEC.py
