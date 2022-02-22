@@ -62,66 +62,63 @@ makeblastdb -in GRCz11.fa -dbtype nucl
 ```
 python scripts/CRISPRdetectorCORE.py | scripts/CRISPRdetectorBE.py (base editing)
 
---sample: sample name & output dir  
+--sample: sample name & output dir  [optional]
 
---e1: treatment group fq1 path, required = True  
+--e1: treatment group fq1 path [required]
 
---e2: treatment group fq2 path, required = False  
+--e2: treatment group fq2 path [optional]
 
---c1: control group fq2 path, required = False  
-
---c2: control group fq2 path, required = False  
+--c1: control group fq2 path [optional]
+--c2: control group fq2 path [optional]  
 
 --sample: sample name & output dir name, required = True  
 
---amplicons_file: a tab-delimited text amplicons description file with up to 3 columns, required=True  
-  [AMPLICON_NAME, AMPLICON_SEQ, gRNA_SEQ_without_PAM(Optional)]
-
---threads: number of threads to run sentieon minimap2 & driver module, default=1 
+--amplicons_file: a tab-delimited text amplicons description file with up to 3 columns: AMPLICON_NAME, AMPLICON_SEQ, gRNA_SEQ_without_PAM(optional) [required]  
   
---anno: annotate variants with ANNOVAR [1] or not run ANNOVAR [2], required = False  
+--threads: number of threads to run sentieon minimap2 & driver module [default:1] 
+  
+--anno: annotate variants with ANNOVAR or not [optional]
+--assembly: assembly version, hg19,hg38 ... [optional]
 
---assembly: assembly version, hg19,hg38 ...  
+--db: ANNOVAR database path [optional]
 
---db: ANNOVAR database path, required = False    
+--ClinVar: only organism homo sapiens experiment type sequencing data support variant annotations from ClinVar [default:0]  
 
---ClinVar: only organism homo sapiens experiment type sequencing data support variant annotations from ClinVar[1], default = 0   
+--cleavage_offset: Center of quantification window to use within respect to the 3-end of the provided sgRNA sequence [default:-3]
 
---cleavage_offset: Center of quantification window to use within respect to the 3-end of the provided sgRNA sequence, default = -3  
+--window_size: defines the size (in bp) of the quantification window extending from the position specified by the cleavage_offset parameter in relation to the provided guide RNA sequence, 0 means whole amplicon analysis [default:0]
 
---window_size: defines the size (in bp) of the quantification window extending from the position specified by the cleavage_offset parameter in relation to the provided guide RNA sequence, 0 means whole amplicon analysis, default = 0  
+--o: output path [default:'.']
 
---o: output path, default='.', required = False  
+--ignore_substitutions: enable substitutions evaluation [default:0]  
 
---ignore_substitutions: enable substitutions evaluation[1], default = 0  (Not)
+--min_tumor_allele_frac: the minimum allelic fraction in treated sample [default:0.005] 
 
---min_tumor_allele_frac: the minimum allelic fraction in treated sample, default = 0.005  
+--min_num_of_reads: the minimum number of reads (per locus site) to evaluate [default:500] 
 
---min_num_of_reads: the minimum number of reads (per locus site) to evaluate, default = 500  
 
---max_fisher_pv_active: the maximum pvalue of the statistical difference between treated and untreated sample, default = 0.05  
+--max_fisher_pv_active: the maximum pvalue of the statistical difference between treated and untreated sample [default:0.05] 
 ```
 ### 2. Whole genome sequencing (WGS) data analysis
 ```
 python scripts/CRISPRdetectorWGS.py
 
---e1: treatment group fq1 path, required = True  
+--e1: treatment group fq1 path [required]
+--e2: treatment group fq2 path [optional]
 
---e2: treatment group fq2 path, required = False  
+--c1: control group fq2 path [optional]
 
---c1: control group fq2 path, required = False  
+--c2: control group fq2 path [optional]
 
---c2: control group fq2 path, required = False  
+--sample: sample name & output dir name [required]    
 
---sample: sample name & output dir name    
+--o: output path [default='.']
 
---o: output path, default='.', required = False  
+--threads: number of threads to run sentieon minimap2 & driver module [default:1]
 
---threads: number of threads to run sentieon minimap2 & driver module, default = 1   
+--bed: bed format file input to call variants of interested regions [optional]
 
---bed: bed format file input to call variants of interested regions, required = False   
-
---assembly: path to assembly in fasta format : hg38.fa mm9.fa ... required = True  
+--assembly: path to assembly in fasta format : hg38.fa mm9.fa ... [required]    
 ```
 
 
@@ -129,17 +126,17 @@ python scripts/CRISPRdetectorWGS.py
 ```
 python scripts/CRISPRdetectorVEC.py
 
---e1: treatment group fq1 path, required = True  
+--e1: treatment group fq1 path [required]    
 
---e2: treatment group fq2 path, required = False  
+--e2: treatment group fq2 path [optional]
 
---c1: control group fq2 path, required = False  
+--c1: control group fq2 path [optional]
 
---c2: control group fq2 path, required = False  
+--c2: control group fq2 path [optional]
 
---sample: sample name & output dir name  
+--sample: sample name & output dir name [required]    
 
---o: output path, default='.', required = False  
+--o: output path, default='.' [default='.']
 
 --threads: number of threads to run sentieon minimap2 & driver module, default = 1   
 
