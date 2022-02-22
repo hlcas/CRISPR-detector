@@ -58,91 +58,61 @@ retrieve_seq_from_fasta.pl --format refGene --seqfile GRCz11.fa GRCz11_refGene.t
 makeblastdb -in GRCz11.fa -dbtype nucl  
 
 ## Usage  
-### 1. Single amplicon & pooled amplicons sequencing data analysis
+### Common parameters for CRISPRdetectorCORE.py|CRISPRdetectorBE.py|CRISPRdetectorWGS.py|CRISPRdetectorVEC.py
 ```
-python scripts/CRISPRdetectorCORE.py | scripts/CRISPRdetectorBE.py (base editing)
-
 --sample: sample name & output dir  [optional]
-
 --e1: treatment group fq1 path [required]
-
 --e2: treatment group fq2 path [optional]
-
 --c1: control group fq2 path [optional]
---c2: control group fq2 path [optional]  
-
---sample: sample name & output dir name, required = True  
-
---amplicons_file: a tab-delimited text amplicons description file with up to 3 columns: AMPLICON_NAME, AMPLICON_SEQ, gRNA_SEQ_without_PAM(optional) [required]  
-  
---threads: number of threads to run sentieon minimap2 & driver module [default:1] 
-  
---anno: annotate variants with ANNOVAR or not [optional]
---assembly: assembly version, hg19,hg38 ... [optional]
-
---db: ANNOVAR database path [optional]
-
---ClinVar: only organism homo sapiens experiment type sequencing data support variant annotations from ClinVar [default:0]  
-
---cleavage_offset: Center of quantification window to use within respect to the 3-end of the provided sgRNA sequence [default:-3]
-
---window_size: defines the size (in bp) of the quantification window extending from the position specified by the cleavage_offset parameter in relation to the provided guide RNA sequence, 0 means whole amplicon analysis [default:0]
-
+--c2: control group fq2 path [optional]
 --o: output path [default:'.']
-
---ignore_substitutions: enable substitutions evaluation [default:0]  
-
+--threads: number of threads to run sentieon minimap2 & driver module [default:1] 
 --min_tumor_allele_frac: the minimum allelic fraction in treated sample [default:0.005] 
-
---min_num_of_reads: the minimum number of reads (per locus site) to evaluate [default:500] 
-
-
 --max_fisher_pv_active: the maximum pvalue of the statistical difference between treated and untreated sample [default:0.05] 
 ```
-### 2. Whole genome sequencing (WGS) data analysis
+### 1. Single amplicon & pooled amplicons sequencing data analysis
+### Additional parameters for CRISPRdetectorCORE.py 
+```
+python scripts/CRISPRdetectorCORE.py
+--amplicons_file: a tab-delimited text amplicons description file with up to 3 columns: AMPLICON_NAME, AMPLICON_SEQ, gRNA_SEQ_without_PAM(optional) [required]  
+--anno: annotate variants with ANNOVAR or not [optional]
+--assembly: assembly version, hg19,hg38 ... [optional]
+--db: ANNOVAR database path [optional]
+--ClinVar: only organism homo sapiens experiment type sequencing data support variant annotations from ClinVar [default:0]  
+--cleavage_offset: Center of quantification window to use within respect to the 3-end of the provided sgRNA sequence [default:-3]
+--window_size: defines the size (in bp) of the quantification window extending from the position specified by the cleavage_offset parameter in relation to the provided guide RNA sequence, 0 means whole amplicon analysis [default:0]
+--ignore_substitutions: enable substitutions evaluation [default:0]  
+--min_num_of_reads: the minimum number of reads (per locus site) to evaluate [default:500] 
+```
+### 2.Base editing experiments target amplicon sequencing data analysis
+
+### Additional parameters for CRISPRdetectorBE.py
+```
+python scripts/CRISPRdetectorBE.py
+--amplicons_file: a tab-delimited text amplicons description file with up to 3 columns: AMPLICON_NAME, AMPLICON_SEQ, gRNA_SEQ_without_PAM(optional) [required]  
+--anno: annotate variants with ANNOVAR or not [optional]
+--assembly: assembly version, hg19,hg38 ... [optional]
+--db: ANNOVAR database path [optional]
+--ClinVar: only organism homo sapiens experiment type sequencing data support variant annotations from ClinVar [default:0]  
+--cleavage_offset: Center of quantification window to use within respect to the 3-end of the provided sgRNA sequence [default:-3]
+--window_size: defines the size (in bp) of the quantification window extending from the position specified by the cleavage_offset parameter in relation to the provided guide RNA sequence, 0 means whole amplicon analysis [default:0]
+--min_num_of_reads: the minimum number of reads (per locus site) to evaluate [default:500] 
+```
+
+### 3. Whole genome sequencing (WGS) data analysis
+### Additional parameters for CRISPRdetectorWGS.py
 ```
 python scripts/CRISPRdetectorWGS.py
-
---e1: treatment group fq1 path [required]
---e2: treatment group fq2 path [optional]
-
---c1: control group fq2 path [optional]
-
---c2: control group fq2 path [optional]
-
---sample: sample name & output dir name [required]    
-
---o: output path [default='.']
-
---threads: number of threads to run sentieon minimap2 & driver module [default:1]
-
 --bed: bed format file input to call variants of interested regions [optional]
-
 --assembly: path to assembly in fasta format : hg38.fa mm9.fa ... [required]    
 ```
 
 
-### 3. Vector sequence insertion locations detection 
+### 4. Vector sequence insertion locations detection 
+### Additional parameters for CRISPRdetectorVEC.py
 ```
 python scripts/CRISPRdetectorVEC.py
-
---e1: treatment group fq1 path [required]    
-
---e2: treatment group fq2 path [optional]
-
---c1: control group fq2 path [optional]
-
---c2: control group fq2 path [optional]
-
---sample: sample name & output dir name [required]    
-
---o: output path, default='.' [default='.']
-
---threads: number of threads to run sentieon minimap2 & driver module, default = 1   
-
---bed: bed format file input to call variants of interested regions, required = False   
-
---vector : path to vector genome in fasta format, required = True  
-
---assembly: path to assembly in fasta format : hg38.fa mm9.fa ... required = True  
+--bed: bed format file input to call variants of interested regions [optional]
+--vector : path to vector genome in fasta format [required]   
+--assembly: path to assembly in fasta format : hg38.fa mm9.fa ... [required]
 ```
