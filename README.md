@@ -18,31 +18,38 @@ Download sentieon toolkit from
 https://s3.amazonaws.com/sentieon-release/software/sentieon-genomics-202010.03.tar.gz  
 You may request a license by sending emails to huanglei@genomics.cn
 
+```
 export SENTIEON_LICENSE=PATH_TO_SENTIEON/sentieon-genomics-202010.03/localhost_eval.lic  
 export PATH=PATH_TO_SENTIEON/sentieon-genomics-202010.03/bin:$PATH
+```
 
 ### Python packages
+```
 pip install biopython  
 pip install pyfaidx  
 pip install -U textwrap3  
 conda install blast  
 conda install samtools  
+```
 
 ### ANNOVAR
 Download ANNOVAR from
 https://www.openbioinformatics.org/annovar/annovar_download_form.php  
   
+```
 perl annotate_variation.pl -downdb -webfrom annovar avdblist humandb/ -buildver hg38  
 perl annotate_variation.pl -buildver hg38  -downdb -webfrom annovar refGene humandb/  
 perl annotate_variation.pl -buildver hg38  -downdb -webfrom annovar clinvar_20210501 humandb/  
 export PATH=PATH_TO_ANNOVAR/annovar:$PATH  
-  
+```
+
 Organism Homo sapiens experiment type sequencing data support variant annotations from refGene & ClinVar, other species may only support refGene annotations
 
 #### You may build ANNOVAR database youself for any species with coresponding genome assembly and gff3 format files
 For example, to build a database for zebrafish. Download GRCz11.fa and GRCz11.gff3 from public database.  
 Then running commands as following:  
 
+```
 conda install -c bioconda/label/cf201901 gffread  
 conda install -c bioconda/label/cf201901 ucsc-gtftogenepred  
 conda install -c bioconda/label/cf201901 blast  
@@ -56,6 +63,7 @@ gffread GRCz11.gff3 -T -o GRCz11.gtf
 gtfToGenePred -genePredExt GRCz11.gtf GRCz11_refGene.txt  
 retrieve_seq_from_fasta.pl --format refGene --seqfile GRCz11.fa GRCz11_refGene.txt --out GRCz11_refGeneMrna.fa    
 makeblastdb -in GRCz11.fa -dbtype nucl  
+```
 
 # Usage  
 ## 1. Common parameters
