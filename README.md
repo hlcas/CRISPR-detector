@@ -76,7 +76,7 @@ python CRISPRdetectorCORE.py | CRISPRdetectorBE.py | CRISPRdetectorWGS.py | CRIS
 --c2: control group fq2 path [optional]
 --o: output path [default:'.']
 --threads: number of threads to run sentieon minimap2 & driver module [default:1] 
---min_tumor_allele_frac: the minimum allelic fraction in treated sample [default:0.005] 
+--min_allele_frac: the minimum allelic fraction in treated sample [default:0.005] 
 --max_fisher_pv_active: the maximum pvalue of the statistical difference between treated and untreated sample [default:0.05] 
 ```
 
