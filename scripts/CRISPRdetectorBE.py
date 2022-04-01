@@ -131,9 +131,6 @@ if args.e2 != None:
 else:
 	os.system('sentieon minimap2 -ax sr -Y -K 100000000 -R  \"@RG\\tID:'+sample_name+'\\tSM:'+sample_name+'\\tPL:$platform\" -t '+threads+' '+fasta+' '+e1+' | sentieon util sort -o temp/'+sample_name+'.tmp.bam -t '+threads+' --sam2bam -i - && sync')
 logger.info('Finished : mapping treatment group fastqs to amplicon(s) using minimap2.')
-os.system('samtools view -bF 128 temp/'+sample_name+'.tmp.bam > temp/tmp.bam && sync')
-os.system('mv temp/tmp.bam temp/'+sample_name+'.tmp.bam')
-os.system('samtools index temp/'+sample_name+'.tmp.bam')
 
 # Numbers of reads mapped to each amplicon
 os.system('samtools idxstats temp/'+sample_name+'.tmp.bam > temp/mapping.tmp.tab && sync')
