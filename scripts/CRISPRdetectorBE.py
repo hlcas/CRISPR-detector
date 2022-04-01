@@ -43,7 +43,7 @@ parse.add_argument("--assembly", help="assembly version",required=False)
 parse.add_argument("--ClinVar", help="Organism Homo sapiens experiment type sequencing data support variant annotations from ClinVar[1]", default=0, type = int)
 parse.add_argument("--cleavage_offset", help='Center of quantification window to use within respect to the 3-end of the provided sgRNA sequence[-3]',default=-3,type=int)
 parse.add_argument("--window_size", help="Defines the size (in bp) of the quantification window extending from the position specified by the cleavage_offset parameter in relation to the provided guide RNA sequence[0], 0 means whole amplicon analysis",default=0,type=int)
-parse.add_argument("--min_tumor_allele_frac", help="The minimum allelic fraction in treated sample",default='0.005',type=str)
+parse.add_argument("--min_allele_frac", help="The minimum allelic fraction in treated sample",default='0.005',type=str)
 parse.add_argument("--min_num_of_reads",help="The minimum number of reads (per locus site) to evaluate",default=500,type=int)
 parse.add_argument("--max_fisher_pv_active",help="The maximum pvalue of the statistical difference between treated and untreated sample",default='0.05',type=str)
  
@@ -92,7 +92,7 @@ threads = str(args.threads)
 window_size = args.window_size
 cleavage_offset = args.cleavage_offset
 min_num_of_reads = args.min_num_of_reads
-filter_t_alt_frac = args.min_tumor_allele_frac
+filter_t_alt_frac = args.min_allele_frac
 
 def format_file(x,y,z):
 	if x not in y:
