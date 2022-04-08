@@ -139,7 +139,7 @@ q30 = round(qydf['Q30_BASES'].values[0]*100/qydf['TOTAL_BASES'].values[0],2)
 logger.info('%Q30: The percentage of bases with a quality score of 30 or higher, respectively : '+str(q30)+'%.')
 
 if q30 < 75:
-	logger.info('%Q30 < 75 %. This sample have low sequencing quality.')
+	logger.info('%Q30 < 75 %. This sample has low sequencing quality.')
 	logger.info('Please check your sequencing quality.')
 	sys.exit(0)
 	
@@ -181,7 +181,7 @@ else:
 	param_list = ' --keep_overlap 1 --min_tumor_allele_frac '+filter_t_alt_frac+' --filter_t_alt_frac '+filter_t_alt_frac+' --resample_depth 100000 --assemble_mode 3'
 	os.system('sentieon driver -t '+threads+' -r '+fasta+' -i temp/'+sample_name+'.tmp.bam --algo TNscope --tumor_sample '+sample_name+param_list+' temp/tmp.vcf.gz && sync')
 
-logger.info('Finished : variants called')
+logger.info('Finished : variants called.')
 
 try:
 	raw_vcf = pd.read_csv('temp/tmp.vcf.gz',sep='\t',header=None,comment='#',compression='gzip')
