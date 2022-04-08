@@ -140,7 +140,7 @@ q30 = round(qydf['Q30_BASES'].values[0]*100/qydf['TOTAL_BASES'].values[0],2)
 logger.info('%Q30: The percentage of bases with a quality score of 30 or higher, respectively : '+str(q30)+'%.')
 
 if q30 < 75:
-	logger.info('%Q30 < 75 %. This sample have low sequencing quality.')
+	logger.info('%Q30 < 75 %. This sample has low sequencing quality.')
 	logger.info('Please check your sequencing quality.')
 	sys.exit(0)
 
