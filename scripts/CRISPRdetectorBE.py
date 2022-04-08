@@ -132,6 +132,17 @@ else:
 	os.system('sentieon minimap2 -ax sr -Y -K 100000000 -R  \"@RG\\tID:'+sample_name+'\\tSM:'+sample_name+'\\tPL:$platform\" -t '+threads+' '+fasta+' '+e1+' | sentieon util sort -o temp/'+sample_name+'.tmp.bam -t '+threads+' --sam2bam -i - && sync')
 logger.info('Finished : mapping treatment group fastqs to amplicon(s) using minimap2.')
 
+# Q30 %
+os.system('sentieon driver -i temp/'+sample_name+'.tmp.bam -r temp/amplicon_seq.fa --algo QualityYield temp/base_quality_metrics.txt && sync')
+qydf = pd.read_csv('temp/base_quality_metrics.txt',sep='\t',comment='#')
+q30 = round(qydf['Q30_BASES'].values[0]*100/qydf['TOTAL_BASES'].values[0],2)
+logger.info('%Q30: The percentage of bases with a quality score of 30 or higher, respectively : '+str(q30)+'%.')
+
+if q30 < 75:
+	logger.info('%Q30 < 75 %. This sample have low sequencing quality.')
+	logger.info('Please check your sequencing quality.')
+	sys.exit(0)
+	
 # Numbers of reads mapped to each amplicon
 os.system('samtools idxstats temp/'+sample_name+'.tmp.bam > temp/mapping.tmp.tab && sync')
 
@@ -178,7 +189,7 @@ except:
 	logger.info('No variants called.')
 	time1=time.time()
 	logger.info('Finished! Running time: %s seconds'%(round(time1-time0,2)))
-	sys.exit('No variants called.')
+	sys.exit(0)
 
 if len(raw_vcf.columns) == 10:
 	raw_vcf.columns = ['#CHROM','POS','ID','REF','ALT','QUAL','FILTER','INFO','FORMAT',sample_name]
@@ -190,7 +201,7 @@ def vcflencheck(vcfx):
 		logger.info('No variants called.')
 		time1=time.time()
 		logger.info('Finished! Running time: %s seconds'%(round(time1-time0,2)))
-		sys.exit('No variants called.')
+		sys.exit(0)
 
 raw_vcf = raw_vcf[raw_vcf['FORMAT'] != 'GT:AD']
 vcflencheck(raw_vcf)
@@ -511,4 +522,4 @@ if len(amplicon_fas.keys()) > 0:
  
 os.system('zip -r '+sample_name+'.zip *txt */*csv */*txt && sync')
 time1=time.time()
-logger.info('Finished! Running time: %s seconds'%(round(time1-time0,2)))
+logger.info('Finished! Running time: %s seconds'%(round(time1-time0,2))+'.')
