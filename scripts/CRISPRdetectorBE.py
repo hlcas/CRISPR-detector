@@ -97,8 +97,8 @@ filter_t_alt_frac = args.min_allele_frac
 def format_file(x,y,z):
 	if x not in y:
 		if x not in str(Seq(y).reverse_complement()):
-			logger.error('Site '+z+' find conflicts , gRNA not in amplicon seq!\n')
-			sys.exit('Please input the right sequence(s) and submit agian!')
+			logger.error('Site '+z+' find conflicts , gRNA not in amplicon seq.\n')
+			sys.exit('Please input the right sequence(s) and submit agian.')
 		else:
 			return str(Seq(y).reverse_complement())
 	else:
@@ -228,7 +228,7 @@ def vcflencheck(vcfx):
 		logger.info('No variants called.')
 		time1=time.time()
 		logger.info('Finished! Running time: %s seconds'%(round(time1-time0,2)))
-		sys.exit('No variants called.')
+		sys.exit(0)
 	
 # filter out sites with clean reads num < param min_num_of_reads
 raw_vcf = raw_vcf[raw_vcf['#CHROM'].isin(loci_high_reads)]
