@@ -103,9 +103,22 @@ else:
 	logger.info('Calling variants')			
 	param_list = ' --min_tumor_allele_frac '+filter_t_alt_frac+' --filter_t_alt_frac '+filter_t_alt_frac+' --resample_depth 100000 --assemble_mode 3'
 	if args.bed == None:
-		os.system('sentieon driver -t '+threads+' -r '+fasta+' -i temp/'+sample_name+'.tmp.bam --algo TNscope --tumor_sample '+sample_name+param_list+' variants.vcf.gz && sync')
+		os.system('sentieon driver -t '+threads+' -r '+fasta+' -i temp/'+sample_name+'.tmp.bam --algo TNscope --tumor_sample '+sample_name+param_list+' temp/tmp.vcf.gz && sync')
 	else:
-		os.system('sentieon driver -t '+threads+' -r '+fasta+' -i temp/'+sample_name+'.tmp.bam --interval '+interval_bed+' --algo TNscope --tumor_sample '+sample_name+param_list+' variants.vcf.gz && sync')
+		os.system('sentieon driver -t '+threads+' -r '+fasta+' -i temp/'+sample_name+'.tmp.bam --interval '+interval_bed+' --algo TNscope --tumor_sample '+sample_name+param_list+' temp/tmp.vcf.gz',sep='\t',comment='##') && sync')
+
+# Filter low quality variants
+raw_vcf = pd.read_csv('temp/tmp.vcf.gz',sep='\t',comment='#',header=None)
+if len(raw_vcf.columns) == 10:
+	raw_vcf.columns = ['#CHROM','POS','ID','REF','ALT','QUAL','FILTER','INFO','FORMAT',sample_name]
+else:
+	raw_vcf.columns = ['#CHROM','POS','ID','REF','ALT','QUAL','FILTER','INFO','FORMAT',sample_name,'control_'+sample_name]
+
+SVs = raw_vcf[raw_vcf['FORMAT'] == 'GT:AD']
+raw_vcf = raw_vcf[raw_vcf['FORMAT'] != 'GT:AD']
+filterVCF = raw_vcf[raw_vcf['FILTER'].isin(['PASS','triallelic_site','alt_allele_in_normal'])]
+SVs.to_csv(sample_name+'.sv.vcf',sep='\t',index=None)
+filterVCF.to_csv(sample_name+'.snps_indels.vcf',sep='\t',index=None)
 
 logger.info('Finished : variants called')
 time1=time.time()
