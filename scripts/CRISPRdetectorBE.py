@@ -245,9 +245,6 @@ def differ_len(r,a):
 
 
 raw_vcf['differ_len'] = raw_vcf.apply(lambda row:differ_len(row['REF'],row['ALT']),axis=1)
-if args.ignore_substitutions == 1:
-	raw_vcf = raw_vcf[raw_vcf['differ_len'] != 0]
-	vcflencheck(raw_vcf)
 
 raw_vcf = raw_vcf.reset_index(drop=True)
 
@@ -478,15 +475,7 @@ if len(sv_vcf) != 0:
 				sv_vcf[sv_vcf['Amplicon'] == i].to_csv('out_sv.txt',sep='\t',index=None)
 
 # Panel data summary 
-if len(amplicon_fas.keys()) > 0:
-	def substitutions_removal(xloci,ydf):
-		if args.ignore_substitutions == 1:
-			indeldf = ydf[['POS','deletion%','insertion%','indel%']]		
-			os.system('grep \'#\' '+xloci+'/out_mutations_locations.csv > '+xloci+'/tmp1.txt')
-			indeldf.to_csv(xloci+'/tmp2.txt',index=None)
-			os.system('cat '+xloci+'/tmp* > '+xloci+'/out_mutations_locations.csv')
-			os.system('rm -rf '+xloci+'/tmp*')
-		
+if len(amplicon_fas.keys()) > 0:	
 	def modified_indel(x):
 		if os.path.exists(x+'/out_mutations_locations.csv'):
 			tmp = pd.read_csv(x+'/out_mutations_locations.csv',comment='#')
@@ -510,9 +499,6 @@ if len(amplicon_fas.keys()) > 0:
 	mapdf['indel%'] = mapdf['tmpValues'].apply(lambda x:x.split('|')[1])
 	mapdf['modified%'] = mapdf['tmpValues'].apply(lambda x:x.split('|')[0])
 	mapdf = mapdf.drop('tmpValues',axis=1)
-
-	if args.ignore_substitutions == 1:
-		mapdf = mapdf.drop(['substitution%','modified%'],axis=1)
 
 	mapdf.to_csv('sitesComparison.txt',sep='\t',index=None)
 
