@@ -376,7 +376,7 @@ if len(avinput) != 0:
 	avinput = avinput.sort_values(by='AF%',ascending=False)
 
 	if args.anno == 1:
-
+		annovar_db = args.db
 		# params runnning Annovar needed 
 		assembly = args.assembly
 		assembly_path = os.path.join(annovar_db,assembly+'.fa')
