@@ -484,10 +484,8 @@ if len(amplicon_fas.keys()) > 0:
 				tmp = tmp[tmp['POS'] <= dic_window[x][1]]
 				print(str(dic_window[x][0])+'|'+str(dic_window[x][1]))
 			if len(tmp) != 0:
-				substitutions_removal(x,tmp)
 				return str(tmp['modified%'].max())+'|'+str(tmp['indel%'].max())+'|'+str(tmp['substitution%'].max())+'|'+str(tmp['insertion%'].max())+'|'+str(tmp['deletion%'].max())
 			else:
-				substitutions_removal(x,tmp)
 				return '0|0|0|0|0'
 		else:
 			return '0|0|0|0|0'
