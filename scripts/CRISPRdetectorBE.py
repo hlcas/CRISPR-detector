@@ -456,7 +456,8 @@ if len(avinput) != 0:
 				avinput_amp['Overlap'] = avinput_amp.apply(lambda row:overlap(row['Start'],row['End'],amp),axis=1)
 			avinput_amp = avinput_amp[avinput_amp['Overlap'] == 'T']
 			avinput_amp.drop('Overlap',axis=1,inplace=True)
-		avinput_amp.to_csv(amp+'/out_mutations.txt',sep='\t',index=None)
+		if len(avinput_amp) != 0:
+			avinput_amp.to_csv(amp+'/out_mutations.txt',sep='\t',index=None)
 
 # SV
 if len(sv_vcf) != 0:
