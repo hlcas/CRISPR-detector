@@ -306,8 +306,8 @@ if len(avinput) != 0:
 			sgRNA_end = sgRNA_start + len(sgrna[t][:].seq) - 1
 			if window_size != 0:
 				cleavage_offset = args.cleavage_offset
-				window_start = max(sgRNA_end - window_size + cleavage_offset,1)
-				window_end = min(window_start + 2*window_size,len(amplicon_fas[t][:].seq))	
+				window_start = max(sgRNA_end - window_size + cleavage_offset + 1,1)
+				window_end = min(window_start + 2*window_size -1,len(amplicon_fas[t][:].seq))	
 			else:
 				window_start = 1
 				window_end = len(amplicon_fas[t][:].seq)
@@ -434,7 +434,10 @@ if len(avinput) != 0:
 	for amp in avinput['Amplicon'].unique():		
 		avinput_amp = avinput[avinput['Amplicon'] == amp]
 		if window_size != 0:
-			avinput_amp['Overlap'] = avinput_amp.apply(lambda row:overlap(row['Start'],row['End'],amp),axis=1)
+			if 'Amplicon_Start' in avinput_amp.columns:
+				avinput_amp['Overlap'] = avinput_amp.apply(lambda row:overlap(row['Amplicon_Start'],row['Amplicon_End'],amp),axis=1)
+			else:
+				avinput_amp['Overlap'] = avinput_amp.apply(lambda row:overlap(row['Start'],row['End'],amp),axis=1)
 			avinput_amp = avinput_amp[avinput_amp['Overlap'] == 'T']
 			avinput_amp.drop('Overlap',axis=1,inplace=True)
 		avinput_amp.to_csv(amp+'/out_mutations.txt',sep='\t',index=None)
