@@ -346,15 +346,15 @@ if len(avinput) != 0:
 
 				logger.info('Analysis site '+t+'.')
 				if len(amplicons_file.columns) == 3:
-					f.write('#sgRNA:'+str(sgRNA_start)+','+str(sgRNA_end)+'\n')
-					fb.write('#sgRNA:'+str(sgRNA_start)+','+str(sgRNA_end)+'\n')
+					f.write('#sgRNA : '+str(sgRNA_start)+'~'+str(sgRNA_end)+'\n')
+					fb.write('#sgRNA : '+str(sgRNA_start)+'~'+str(sgRNA_end)+'\n')
 					predict_cp = str(max(sgRNA_end + cleavage_offset,1))
-					f.write('#predicted_cleavage_position:'+predict_cp+'\n')
-					fb.write('#predicted_cleavage_position:'+predict_cp+'\n')
+					f.write('#predicted cleavage position : '+predict_cp+'\n')
+					fb.write('#predicted cleavage position : '+predict_cp+'\n')
 
 					if window_size != 0:
-						f.write('#window:'+str(window_start)+','+str(window_end)+'\n')
-						fb.write('#window:'+str(window_start)+','+str(window_end)+'\n')
+						f.write('#quantification window : '+str(window_start)+'~'+str(window_end)+'\n')
+						fb.write('#quantification window : '+str(window_start)+'~'+str(window_end)+'\n')
 				f.write('POS,substitution%,deletion%,insertion%,indel%,modified%\n')
 				fb.write('POS,Nucleotide,A,C,G,T,-\n')
 
