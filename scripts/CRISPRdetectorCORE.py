@@ -350,10 +350,10 @@ if len(avinput) != 0:
 		with open(t+'/out_mutations_locations.csv','w') as f:
 			logger.info('Analysis site '+t+'.')
 			if len(amplicons_file.columns) == 3:
-				f.write('#sgRNA:'+str(sgRNA_start)+','+str(sgRNA_end)+'\n')
-				f.write('#predicted_cleavage_position:'+str(max(sgRNA_end + cleavage_offset,1))+'\n')
+				f.write('#sgRNA : '+str(sgRNA_start)+'~'+str(sgRNA_end)+'\n')
+				f.write('#predicted cleavage position : '+str(max(sgRNA_end + cleavage_offset,1))+'\n')
 				if window_size != 0:
-					f.write('#window:'+str(window_start)+','+str(window_end)+'\n')
+					f.write('#quantification window : '+str(window_start)+'~'+str(window_end)+'\n')
 			f.write('POS,substitution%,deletion%,insertion%,indel%,modified%\n')
 
 			for i in range(1,len(amplicon_fas[t][:].seq)):
