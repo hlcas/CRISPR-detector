@@ -390,7 +390,8 @@ if len(avinput) != 0:
 				
 	avinput['AF%'] = avinput['AF%'].apply(lambda x:round(x,2))
 	avinput = avinput.sort_values(by='AF%',ascending=False)
-
+	avinput = avinput.reset_index(drop=True)
+	
 	if args.anno == 1:
 		annovar_db = args.db
 		# params runnning Annovar needed 
