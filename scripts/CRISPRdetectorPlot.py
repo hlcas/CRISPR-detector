@@ -129,3 +129,4 @@ for i in os.listdir('.'):
 			posterProcess(g,12,8,xlab,ylab)
 			g.figure.savefig(i+"/out_distribution_of_indel_size.png",dpi=args.dpi)
 			plt.close()
+
