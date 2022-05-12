@@ -125,3 +125,11 @@ python scripts/CRISPRdetectorVEC.py
 --vector : path to vector genome in fasta format [required]   
 --assembly: path to assembly in fasta format : hg38.fa mm9.fa ... [required]
 ```
+
+## 6. Plot for single amplicon & pooled amplicons sequencing data analysis result
+```
+python scripts/CRISPRdetectorPlot.py
+--sample: sample name & output dir name [required]  
+--o: output path [default:'.']  
+--dpi: the resolution in dots per inch [default:1800] 
+```
