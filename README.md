@@ -135,7 +135,7 @@ python scripts/CRISPRdetectorPlot.py
 ```
 
 ## Citation
-CRISPR-Detector: Fast and Accurate Detection, Visualization, and Annotation of Genome Wide Mutations Induced by Gene Editing Events
-Lei Huang, Dan Wang, Haodong Chen, Jinnan Hu, Xuechen Dai, Chuan Liu, Anduo Li, Xuechun Shen, Chen Qi, Haixi Sun, Dengwei Zhang, Tong Chen, Yuan Jiang
+CRISPR-Detector: Fast and Accurate Detection, Visualization, and Annotation of Genome Wide Mutations Induced by Gene Editing Events  
+Lei Huang, Dan Wang, Haodong Chen, Jinnan Hu, Xuechen Dai, Chuan Liu, Anduo Li, Xuechun Shen, Chen Qi, Haixi Sun, Dengwei Zhang, Tong Chen, Yuan Jiang  
 bioRxiv 2022.02.16.480781; doi: https://doi.org/10.1101/2022.02.16.480781
 
