@@ -45,7 +45,7 @@ export PATH=PATH_TO_ANNOVAR/annovar:$PATH
 
 Organism Homo sapiens experiment type sequencing data support variant annotations from refGene & ClinVar, other species may only support refGene annotations
 
-#### You may build ANNOVAR database youself for any species with coresponding genome assembly and gff3 format files
+#### You may build ANNOVAR database yourself for any species with corresponding genome assembly and gff3 format files
 For example, to build a database for zebrafish. Download GRCz11.fa and GRCz11.gff3 from public database.  
 Then running commands as following:  
 
