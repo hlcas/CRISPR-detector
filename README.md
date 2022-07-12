@@ -69,7 +69,7 @@ makeblastdb -in GRCz11.fa -dbtype nucl
 ## 1. Common parameters
  ``` 
 python CRISPRdetectorCORE.py | CRISPRdetectorBE.py | CRISPRdetectorWGS.py | CRISPRdetectorVEC.py
---sample: sample name & output dir name [required]
+--sample: sample name & output directory name [required]
 --e1: treatment group fq1 path [required]
 --e2: treatment group fq2 path [optional]
 --c1: control group fq2 path [optional]
@@ -129,7 +129,7 @@ python scripts/CRISPRdetectorVEC.py
 ## 6. Plot for single amplicon & pooled amplicons sequencing data analysis result
 ```
 python scripts/CRISPRdetectorPlot.py
---sample: sample name & output dir name [required]  
+--sample: sample name & output directory name [required]  
 --o: output path [default:'.']  
 --dpi: the resolution in dots per inch [default:1800] 
 ```
