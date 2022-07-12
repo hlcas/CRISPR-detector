@@ -14,7 +14,7 @@ CRISPR-detector provides a web-hosted platform (https://db.cngb.org/crispr-detec
 
 ## System requirements
 ### Sentieon module
-Download sentieon toolkit from
+Download Sentieon toolkit from
 https://s3.amazonaws.com/sentieon-release/software/sentieon-genomics-202010.03.tar.gz  
 You may request a license by sending emails to huanglei@genomics.cn
 
@@ -89,7 +89,7 @@ python scripts/CRISPRdetectorCORE.py
 --assembly: assembly version, hg19,hg38 ... [optional]
 --db: ANNOVAR database path [optional]
 --ClinVar: only organism homo sapiens experiment type sequencing data support variant annotations from ClinVar [default:0]  
---cleavage_offset: Center of quantification window to use within respect to the 3-end of the provided sgRNA sequence [default:-3]
+--cleavage_offset: center of quantification window to use within respect to the 3-end of the provided sgRNA sequence [default:-3]
 --window_size: defines the size (in bp) of the quantification window extending from the position specified by the cleavage_offset parameter in relation to the provided guide RNA sequence, 0 means whole amplicon analysis [default:0]
 --ignore_substitutions: enable substitutions evaluation [default:0]  
 --min_num_of_reads: the minimum number of reads (per locus site) to evaluate [default:500] 
@@ -104,7 +104,7 @@ python scripts/CRISPRdetectorBE.py
 --assembly: assembly version, hg19,hg38 ... [optional]
 --db: ANNOVAR database path [optional]
 --ClinVar: only organism homo sapiens experiment type sequencing data support variant annotations from ClinVar [default:0]  
---cleavage_offset: Center of quantification window to use within respect to the 3-end of the provided sgRNA sequence [default:-3]
+--cleavage_offset: center of quantification window to use within respect to the 3-end of the provided sgRNA sequence [default:-3]
 --window_size: defines the size (in bp) of the quantification window extending from the position specified by the cleavage_offset parameter in relation to the provided guide RNA sequence, 0 means whole amplicon analysis [default:0]
 --min_num_of_reads: the minimum number of reads (per locus site) to evaluate [default:500] 
 ```
@@ -113,17 +113,17 @@ python scripts/CRISPRdetectorBE.py
 ### Additional parameters for CRISPRdetectorWGS.py
 ```
 python scripts/CRISPRdetectorWGS.py
---bed: bed format file input to call variants of interested regions [optional]
---assembly: path to assembly in fasta format : hg38.fa mm9.fa ... [required]    
+--bed: BED format file input to call variants of interested regions [optional]
+--assembly: path to assembly in FASTA format : hg38.fa mm9.fa ... [required]    
 ```
 
 ## 5. Vector sequence insertion locations detection 
 ### Additional parameters for CRISPRdetectorVEC.py
 ```
 python scripts/CRISPRdetectorVEC.py
---bed: bed format file input to call variants of interested regions [optional]
---vector : path to vector genome in fasta format [required]   
---assembly: path to assembly in fasta format : hg38.fa mm9.fa ... [required]
+--bed: BED format file input to call variants of interested regions [optional]
+--vector : path to vector genome in FASTA format [required]   
+--assembly: path to assembly in FASTA format : hg38.fa mm9.fa ... [required]
 ```
 
 ## 6. Plot for single amplicon & pooled amplicons sequencing data analysis result
