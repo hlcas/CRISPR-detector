@@ -122,7 +122,7 @@ python scripts/CRISPRdetectorWGS.py
 ```
 python scripts/CRISPRdetectorVEC.py
 --bed: BED format file input to call variants of interested regions [optional]
---vector : path to vector genome in FASTA format [required]   
+--vector: path to vector genome in FASTA format [required]   
 --assembly: path to assembly in FASTA format : hg38.fa mm9.fa ... [required]
 ```
 
