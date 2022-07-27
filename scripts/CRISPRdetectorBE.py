@@ -23,6 +23,7 @@ from pyfaidx import Fasta
 
 description = '''
 ------------------------------------------------------------------------------------------------------------------------
+
 Base editing experiments target amplicon sequencing data analysis  
 
 Usage:  
@@ -44,6 +45,7 @@ python CRISPRdetectorBE.py
 --cleavage_offset: center of quantification window to use within respect to the 3-end of the provided sgRNA sequence [default:-3]
 --window_size: defines the size (in bp) of the quantification window extending from the position specified by the cleavage_offset parameter in relation to the provided guide RNA sequence, 0 means whole amplicon analysis [default:0]
 --min_num_of_reads: the minimum number of reads (per locus site) to evaluate [default:500] 
+
 ------------------------------------------------------------------------------------------------------------------------
 '''
 parse = argparse.ArgumentParser(prog='PROG', formatter_class=argparse.RawDescriptionHelpFormatter, description=textwrap.dedent(description))
