@@ -23,9 +23,19 @@ from pyfaidx import Fasta
 
 description = '''
 ------------------------------------------------------------------------------------------------------------------------
+Base editing experiments target amplicon sequencing data analysis  
 
-The script, supporting both paired-end and single-end reads, is designed to analyze deep-sequencing PCR products, aiming to compute CRISPR-triggered on-target efficiency.
-
+Usage:  
+python CRISPRdetectorBE.py  
+--sample: sample name & output directory name [required]
+--e1: treatment group fq1 path [required]
+--e2: treatment group fq2 path [optional]
+--c1: control group fq2 path [optional]
+--c2: control group fq2 path [optional]
+--o: output path [default:'.']
+--threads: number of threads to run sentieon minimap2 & driver module [default:1] 
+--min_allele_frac: the minimum allelic fraction in treated sample [default:0.005] 
+--max_fisher_pv_active: the maximum pvalue of the statistical difference between treated and untreated sample [default:0.05] 
 ------------------------------------------------------------------------------------------------------------------------
 '''
 parse = argparse.ArgumentParser(prog='PROG', formatter_class=argparse.RawDescriptionHelpFormatter, description=textwrap.dedent(description))
