@@ -22,7 +22,7 @@ from matplotlib import pyplot as plt
 description = '''
 ------------------------------------------------------------------------------------------------------------------------
 
-Plot for single amplicon & pooled amplicons sequencing data analysis result
+The script is designed to plot for single amplicon & pooled amplicons sequencing data analysis result.
 
 Usage:
 
