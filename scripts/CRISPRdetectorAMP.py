@@ -24,7 +24,7 @@ from pyfaidx import Fasta
 description = '''
 ------------------------------------------------------------------------------------------------------------------------
 
-The script, supporting both paired-end and single-end reads, is designed to analyze deep-sequencing PCR products, aiming to compute CRISPR-triggered on-target efficiency.
+Single amplicon & pooled amplicons sequencing data analysis
 
 Usage:
 python CRISPRdetectorAMP.py | CRISPRdetectorBE.py | CRISPRdetectorWGS.py | CRISPRdetectorVEC.py
