@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 '''
 #-------------------------------------------------
-#	   File Name:		CRISPRdetectorCORE.py
+#	   File Name:		CRISPRdetectorAMP.py
 #	   Description:	  The script is designed to analyze deep-sequencing PCR products, aiming to compute CRISPR-triggered
 #						 on-target efficiency.
 #	   Author:		   Lei Huang
