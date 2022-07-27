@@ -24,7 +24,7 @@ from pyfaidx import Fasta
 description = '''
 ------------------------------------------------------------------------------------------------------------------------
 
-Base editing experiments target amplicon sequencing data analysis  
+This script is designed to analyze base editing experiments target amplicon sequencing data.
 
 Usage:  
 python CRISPRdetectorBE.py  
