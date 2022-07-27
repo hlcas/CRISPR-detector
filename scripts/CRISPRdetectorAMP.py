@@ -24,7 +24,7 @@ from pyfaidx import Fasta
 description = '''
 ------------------------------------------------------------------------------------------------------------------------
 
-Single amplicon & pooled amplicons sequencing data analysis
+This script is designed to analyze single amplicon & pooled amplicons sequencing data.
 
 Usage:
 python CRISPRdetectorAMP.py  
