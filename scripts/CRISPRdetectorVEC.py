@@ -18,7 +18,7 @@ import textwrap
 description = '''
 ------------------------------------------------------------------------------------------------------------------------
 
-Vector sequence insertion locations detection
+This script is designed to report the location(s) of vector insertion events for whole genome sequencing (WGS) data.
 
 Usage:
 python CRISPRdetectorVEC.py
