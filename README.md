@@ -81,9 +81,9 @@ python CRISPRdetectorCORE.py | CRISPRdetectorBE.py | CRISPRdetectorWGS.py | CRIS
 ```
 
 ## 2. Single amplicon & pooled amplicons sequencing data analysis
-### Additional parameters for CRISPRdetectorCORE.py 
+### Additional parameters for CRISPRdetectorAMP.py 
 ```
-python scripts/CRISPRdetectorCORE.py
+python scripts/CRISPRdetectorAMP.py
 --amplicons_file: a tab-delimited text amplicons description file with up to 3 columns: AMPLICON_NAME, AMPLICON_SEQ, gRNA_SEQ_without_PAM(optional) [required]  
 --anno: annotate variants with ANNOVAR or not [optional]
 --assembly: assembly version, hg19,hg38 ... [optional]
