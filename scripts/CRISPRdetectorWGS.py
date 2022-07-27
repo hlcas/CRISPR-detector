@@ -18,11 +18,11 @@ import textwrap
 description = '''
 ------------------------------------------------------------------------------------------------------------------------
 
-Whole genome sequencing (WGS) data analysis
+This script is designed to analyze whole genome sequencing (WGS) or BED format file defined targeted sequencing data.
 
 Usage:
 
-python CRISPRdetectorAMP.py | CRISPRdetectorBE.py | CRISPRdetectorWGS.py | CRISPRdetectorVEC.py
+python CRISPRdetectorWGS.py
 --sample: sample name & output directory name [required]
 --e1: treatment group fq1 path [required]
 --e2: treatment group fq2 path [optional]
