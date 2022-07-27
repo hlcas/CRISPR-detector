@@ -22,7 +22,14 @@ from matplotlib import pyplot as plt
 description = '''
 ------------------------------------------------------------------------------------------------------------------------
 
-The script, supporting both paired-end and single-end reads, is designed to analyze deep-sequencing PCR products, aiming to compute CRISPR-triggered on-target efficiency.
+Plot for single amplicon & pooled amplicons sequencing data analysis result
+
+Usage:
+
+python scripts/CRISPRdetectorPlot.py
+--sample: sample name & output directory name [required]  
+--o: output path [default:'.']  
+--dpi: the resolution in dots per inch [default:1800] 
 
 ------------------------------------------------------------------------------------------------------------------------
 '''
