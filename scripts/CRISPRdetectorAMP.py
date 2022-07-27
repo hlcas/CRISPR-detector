@@ -27,7 +27,7 @@ description = '''
 Single amplicon & pooled amplicons sequencing data analysis
 
 Usage:
-python CRISPRdetectorAMP.py | CRISPRdetectorBE.py | CRISPRdetectorWGS.py | CRISPRdetectorVEC.py
+python CRISPRdetectorAMP.py  
 --sample: sample name & output directory name [required]
 --e1: treatment group fq1 path [required]
 --e2: treatment group fq2 path [optional]
