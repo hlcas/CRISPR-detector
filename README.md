@@ -95,7 +95,7 @@ python scripts/CRISPRdetectorAMP.py
 --min_num_of_reads: the minimum number of reads (per locus site) to evaluate [default:500] 
 ```
 
-## 3.Base editing experiments target amplicon sequencing data analysis
+## 3. Base editing experiments target amplicon sequencing data analysis
 ### Additional parameters for CRISPRdetectorBE.py
 ```
 python scripts/CRISPRdetectorBE.py
