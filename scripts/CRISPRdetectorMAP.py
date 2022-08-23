@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 '''
 #-------------------------------------------------
-#	   File Name:		CRISPRdetectorMAP.py
-#	   Author:		  Lei Huang
-#	   Date:			  2022.08.20
-#	   E-mail:		  huanglei192@mails.ucas.ac.cn
+#	   File Name: CRISPRdetectorMAP.py
+#	   Author: Lei Huang
+#	   Date: 2022.08.20
+#	   E-mail: huanglei192@mails.ucas.ac.cn
 #-------------------------------------------------
 '''
 
