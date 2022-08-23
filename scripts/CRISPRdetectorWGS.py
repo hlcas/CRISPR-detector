@@ -120,7 +120,7 @@ else:
 	if args.bed == None:
 		os.system('sentieon driver -t '+threads+' -r '+fasta+' -i temp/'+sample_name+'.tmp.bam --algo TNscope --tumor_sample '+sample_name+param_list+' temp/tmp.vcf.gz && sync')
 	else:
-		os.system('sentieon driver -t '+threads+' -r '+fasta+' -i temp/'+sample_name+'.tmp.bam --interval '+interval_bed+' --algo TNscope --tumor_sample '+sample_name+param_list+' temp/tmp.vcf.gz',sep='\t',comment='##') && sync')
+		os.system('sentieon driver -t '+threads+' -r '+fasta+' -i temp/'+sample_name+'.tmp.bam --interval '+interval_bed+' --algo TNscope --tumor_sample '+sample_name+param_list+' temp/tmp.vcf.gz && sync')
 
 # Filter low quality variants
 raw_vcf = pd.read_csv('temp/tmp.vcf.gz',sep='\t',comment='#',header=None)
