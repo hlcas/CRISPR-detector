@@ -14,6 +14,7 @@ import time
 import logging
 import argparse
 import textwrap
+import pandas as pd
 
 description = '''
 ------------------------------------------------------------------------------------------------------------------------
@@ -128,7 +129,7 @@ else:
 		os.system('sentieon driver -t '+threads+' -r '+fasta+' -i temp/'+sample_name+'.tmp.bam --interval '+interval_bed+' --algo TNscope --tumor_sample '+sample_name+param_list+' variants.vcf.gz && sync')
 
 # Filter low quality variants
-raw_vcf = pd.read_csv('temp/tmp.vcf.gz',sep='\t',comment='#',header=None)
+raw_vcf = pd.read_csv('variants.vcf.gz',sep='\t',comment='#',header=None)
 if len(raw_vcf.columns) == 10:
 	raw_vcf.columns = ['#CHROM','POS','ID','REF','ALT','QUAL','FILTER','INFO','FORMAT',sample_name]
 else:
