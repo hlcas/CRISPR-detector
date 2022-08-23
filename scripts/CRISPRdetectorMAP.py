@@ -120,7 +120,8 @@ with open('temp/amplicon_seq.fa','w') as f:
 	for i in range(len(amplicons_file)):
 		f.write('>'+amplicons_file['amplicon'].values[i]+'\n'+amplicons_file['amplicon_seq'].values[i]+'\n')
 
-fasta = os.path.abspath('temp/amplicon_seq.fa')
+fasta = 'temp/amplicon_seq.fa'
+os.system('samtools faidx temp/amplicon_seq.fa && sync')
 
 logger.info('Mapping treatment group fastqs to amplicon(s) using minimap2.')
 if args.e2 != None:
