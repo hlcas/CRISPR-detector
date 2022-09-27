@@ -16,7 +16,7 @@ CRISPR-detector provides a web-hosted platform (https://db.cngb.org/crispr-detec
 ### Sentieon module
 Download Sentieon toolkit from
 https://s3.amazonaws.com/sentieon-release/software/sentieon-genomics-202010.03.tar.gz  
-You may request a license by sending emails to huanglei@genomics.cn
+You may request a license by sending emails to frank.hu@sentieon.com
 
 ```
 export SENTIEON_LICENSE=PATH_TO_SENTIEON/sentieon-genomics-202010.03/localhost_eval.lic  
